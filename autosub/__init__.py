@@ -4,7 +4,7 @@ Defines autosub's main functionality.
 
 #!/usr/bin/env python
 
-from __future__ import absolute_import, print_function, unicode_literals
+
 
 import argparse
 import audioop
@@ -160,6 +160,7 @@ def which(program):
         return os.path.isfile(file_path) and os.access(file_path, os.X_OK)
 
     fpath, _ = os.path.split(program)
+    print( program )
     if fpath:
         if is_exe(program):
             return program
@@ -176,11 +177,12 @@ def extract_audio(filename, channels=1, rate=16000):
     """
     Extract audio from an input file to a temporary WAV file.
     """
+    print( os.environ["path"] )
     temp = tempfile.NamedTemporaryFile(suffix='.wav', delete=False)
     if not os.path.isfile(filename):
         print("The given file does not exist: {}".format(filename))
         raise Exception("Invalid filepath: {}".format(filename))
-    if not which("ffmpeg"):
+    if not which("ffmpeg") and not which("ffmpeg.exe"):
         print("ffmpeg: Executable not found on machine.")
         raise Exception("Dependency not found: ffmpeg")
     command = ["ffmpeg", "-y", "-i", filename,
@@ -329,14 +331,14 @@ def validate(args):
         )
         return False
 
-    if args.src_language not in LANGUAGE_CODES.keys():
+    if args.src_language not in list(LANGUAGE_CODES.keys()):
         print(
             "Source language not supported. "
             "Run with --list-languages to see all supported languages."
         )
         return False
 
-    if args.dst_language not in LANGUAGE_CODES.keys():
+    if args.dst_language not in list(LANGUAGE_CODES.keys()):
         print(
             "Destination language not supported. "
             "Run with --list-languages to see all supported languages."
