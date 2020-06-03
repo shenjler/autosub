@@ -1,4 +1,4 @@
-# Autosub <a href="https://pypi.python.org/pypi/autosub"><img src="https://img.shields.io/pypi/v/autosub.svg"></img></a>
+# Autosub <a href="https://pypi.python.org/pypi/autosub3"><img src="https://img.shields.io/pypi/v/autosub3.svg"></img></a>
   
 ### Auto-generated subtitles for any video
 
@@ -7,7 +7,7 @@ Autosub is a utility for automatic speech recognition and subtitle generation. I
 ### Installation
 
 1. Install [ffmpeg](https://www.ffmpeg.org/).
-2. Run `pip install autosub`.
+2. Run `pip install autosub3`.
 
 ### Usage
 

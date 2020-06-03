@@ -7,6 +7,7 @@ except ImportError:
     from distutils.core import setup
 
 long_description = (
+    'This project upgrades original autosub and adds support for windows.'
     'Autosub is a utility for automatic speech recognition and subtitle generation. '
     'It takes a video or an audio file as input, performs voice activity detection '
     'to find speech regions, makes parallel requests to Google Web Speech API to '
@@ -19,13 +20,13 @@ long_description = (
 )
 
 setup(
-    name='autosub',
-    version='0.4.0',
+    name='autosub3',
+    version='0.1.0',
     description='Auto-generates subtitles for any video or audio file',
     long_description=long_description,
-    author='Anastasis Germanidis',
-    author_email='agermanidis@gmail.com',
-    url='https://github.com/agermanidis/autosub',
+    author='jiaox99',
+    author_email='jiaox99@163.com',
+    url='https://github.com/jiaox99/autosub',
     packages=['autosub'],
     entry_points={
         'console_scripts': [

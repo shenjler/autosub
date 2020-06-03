@@ -160,7 +160,6 @@ def which(program):
         return os.path.isfile(file_path) and os.access(file_path, os.X_OK)
 
     fpath, _ = os.path.split(program)
-    print( program )
     if fpath:
         if is_exe(program):
             return program
@@ -177,7 +176,6 @@ def extract_audio(filename, channels=1, rate=16000):
     """
     Extract audio from an input file to a temporary WAV file.
     """
-    print( os.environ["path"] )
     temp = tempfile.NamedTemporaryFile(suffix='.wav', delete=False)
     if not os.path.isfile(filename):
         print("The given file does not exist: {}".format(filename))
