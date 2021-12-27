@@ -272,6 +272,11 @@ def generate_subtitles( # pylint: disable=too-many-locals,too-many-arguments
             pbar.finish()
 
             if src_language.split("-")[0] != dst_language.split("-")[0]:
+                if not api_key:
+                    # 获取环境变量 GOOGLE_TRANSLATION_API_KEY
+                    api_key = os.environ.get("GOOGLE_TRANSLATION_API_KEY");
+                if not api_key:
+                    api_key = GOOGLE_SPEECH_API_KEY;
                 if api_key:
                     google_translate_api_key = api_key
                     translator = Translator(dst_language, google_translate_api_key,
